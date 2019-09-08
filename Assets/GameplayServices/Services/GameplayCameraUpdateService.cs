@@ -12,25 +12,17 @@ namespace TiltGame.GameplayServices
         private Vector3 CameraForward = Vector3.zero;
         private Vector3 CameraRight= Vector3.zero;
 
-        void Start()
-        {
-
-        }
-
         // Update is called once per frame
         void Update()
         {
             Vector3 forward = transform.forward;
             Vector3 right = transform.right;
 
-            Debug.DrawRay(transform.position, forward);
-            Debug.DrawRay(transform.position, right);
-
             if (!Vector3.Equals(forward, CameraForward))
             {
                 CameraForward.x = forward.x;
                 CameraForward.y = forward.y;
-                CameraForward.y = forward.z;
+                CameraForward.z = forward.z;
                 storiesHelper.Dispatch(GameplayCameraStory.SetCameraForwardFactory.Get(CameraForward));
             }
 
@@ -41,6 +33,9 @@ namespace TiltGame.GameplayServices
                 CameraRight.z = right.z;
                 storiesHelper.Dispatch(GameplayCameraStory.SetCameraRightFactory.Get(CameraRight));
             }
+
+            Debug.DrawRay(transform.position, CameraForward);
+            Debug.DrawRay(transform.position, CameraRight);
 
 
         }
