@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GameplayStories
   m_EditorClassIdentifier: 
   storiesCreator:
-    entryStory: {fileID: 0}
+    entryStory: {fileID: 11400000, guid: b136c91f6fedc904b966ac8b2ace3ae8, type: 2}
     enhancerCreators: []

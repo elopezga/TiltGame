@@ -429,6 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d357778e9502ed34aa18b200c593aacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _storiesHelper:
+  _controllerStoriesHelper:
+    stories: {fileID: 11400000, guid: fa467b6cf0ca115418eb01fec079c9d5, type: 2}
+  _gameplayStoriesHelper:
     stories: {fileID: 11400000, guid: 821f2a0a323698747b963d8111bdaffd, type: 2}
   TiltAngleMax: 15
