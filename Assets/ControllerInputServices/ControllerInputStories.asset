@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ControllerInputStories
   m_EditorClassIdentifier: 
   storiesCreator:
-    entryStory: {fileID: 0}
+    entryStory: {fileID: 11400000, guid: b45433e7ca2a6db4787f663816d8b44c, type: 2}
     enhancerCreators: []
