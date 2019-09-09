@@ -8,9 +8,7 @@ namespace TiltGame.GameplayServices
     {
         public StoriesHelper _controllerStoriesHelper;
         public StoriesHelper _gameplayStoriesHelper;
-
-        [SerializeField]
-        private float TiltAngleMax = 15f;
+        public float TiltAngleMax = 15f;
 
         private Vector2 _joystickLeft = Vector2.zero;
         private Vector3 _cameraForward = Vector3.zero;

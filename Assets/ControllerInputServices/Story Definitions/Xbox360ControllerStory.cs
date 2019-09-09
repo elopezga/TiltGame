@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityStories;
 
-//namespace TiltGame.ControllerInputServices
-   [CreateAssetMenu(menuName="TiltGame`ControllerInputServices/Xbox 360 Controller Story")]
+namespace TiltGame.ControllerInputServices
+{
+   [CreateAssetMenu(menuName="TiltGame/ControllerInputServices/Xbox 360 Controller Story")]
     public class Xbox360ControllerStory : Story
     {
         public Vector2 JoystickLeft = Vector2.zero;
@@ -40,4 +41,4 @@ using UnityStories;
         #endregion
 
     } 
-//}
+}
