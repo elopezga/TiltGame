@@ -287,6 +287,7 @@ MonoBehaviour:
   _gameplayStoriesHelper:
     stories: {fileID: 11400000, guid: 821f2a0a323698747b963d8111bdaffd, type: 2}
   TiltAngleMax: 15
+  TiltSlerpDuration: 0.15
 --- !u!64 &850659165
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -837,7 +838,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-49792
+  m_Name: pb_Mesh13618
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
