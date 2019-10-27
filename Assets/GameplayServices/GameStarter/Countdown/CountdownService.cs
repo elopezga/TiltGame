@@ -19,41 +19,45 @@ namespace TiltGame.GameplayServices
 
         private int _currentCountdownValue = 0;
 
+        public void CountdownStart()
+        {
+            _countdownText.enabled = true;
+        }
+
         public void CountdownStep()
         {
             --_currentCountdownValue;
-            Debug.LogError(_currentCountdownValue);
             _animator.SetInteger("CurrentNumber", _currentCountdownValue);
 
-            _countdownText.text = _currentCountdownValue.ToString();
+            if (_currentCountdownValue == 0)
+            {
+                _countdownText.text = string.Empty;
+                _countdownText.enabled = false;
+                _animator.SetBool("CountdownFinished", true);
+            }
+            else
+            {
+                _countdownText.text = _currentCountdownValue.ToString();
+            }
+
+        }
+
+        public void CountdownMessageStart()
+        {
+            _countdownText.enabled = true;
+            _countdownText.text = _countdownMessage;
+        }
+
+        public void CountdownFinish()
+        {
+            _countdownText.enabled = false;
+            _animator.enabled = false;
         }
 
         private void Awake()
         {
             _countdownText = GetComponent<Text>();
-
             _animator = GetComponent<Animator>();
-            AnimatorClipInfo clipInfo = _animator.GetCurrentAnimatorClipInfo(0)[0];
-            _animationClip = clipInfo.clip;
-
-            if (_animationClip == null)
-            {
-                Debug.LogError("No animation clip found :/");
-                return;
-            }
-
-            AnimationEvent[] events = _animationClip.events;
-            AnimationEvent endEvent = events[0];
-
-            if (endEvent == null)
-            {
-                Debug.LogError("No animation event found :/");
-                return;
-            }
-
-            Debug.LogError(endEvent.functionName);
-            endEvent.intParameter = _countdownDuration;
-
         }
 
         private void Start()
