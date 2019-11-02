@@ -6,33 +6,39 @@ namespace TiltGame.GameplayServices
 {
     public class CountdownStateService : MonoBehaviour
     {
-        private StateEventHandler _stateEventHandler;
+        [SerializeField]
+        private Animator _animator;
+
+        private StateResponder _stateResponderWaitForStart;
+        private StateResponder _stateResponderCountdownState; // Is there a cleaner way of doing this?
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            _stateEventHandler = new StateEventHandler(); // Maybe have this as a monobehaviour and serialize variable;
-            // So programmer does not have to always to this new stuff
-
-            //_stateEventHandler.OnStateEnter.AddListener(HandleStateEnter);
-            _stateEventHandler.OnStateEnter<State_WaitForStart>().AddListener(HandleStateEnterCountdown);
-            // _stateEventHandler.OnStateEnter(StateType.WAITFORSTART).AddListener(HandleStateEnterCountdown); <- Viable solution; no dangling class
+            _stateResponderWaitForStart = _animator.GetStateResponder(StateTypes.WAITFORSTART);
+            _stateResponderCountdownState = _animator.GetStateResponder(StateTypes.COUNTDOWN);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnEnable()
         {
-            
+            _stateResponderWaitForStart.StateEnterEvent += HandleStateEnterWaitForStart;
+            _stateResponderCountdownState.StateEnterEvent += HandleStateEnterCountdown;
         }
 
-        private void HandleStateEnterCountdown()
+        private void OnDisable()
         {
-
+            _stateResponderWaitForStart.StateEnterEvent -= HandleStateEnterWaitForStart;
+            _stateResponderCountdownState.StateEnterEvent -= HandleStateEnterCountdown;
         }
 
-        private void HandleStateEnter(StateTypes. fda)
+        private void HandleStateEnterWaitForStart(StateTypes stateType)
         {
-            // How do you know its a WAITFORSTART event vs a COUNTDOWN event?
+            Debug.LogError("You did it!");
+        }
+
+        private void HandleStateEnterCountdown(StateTypes stateTypes)
+        {
+            Debug.LogError("You did it again!");
         }
     }
 }

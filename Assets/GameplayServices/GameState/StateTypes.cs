@@ -17,11 +17,10 @@ namespace TiltGame.GameplayServices
         private List<States> _statesList = new List<States>();
     } */
 
+    // TODO Don't want to hard-code these. Maybe use ScriptableObject to make it data driven.
     public enum StateTypes
     {
         WAITFORSTART,
         COUNTDOWN
     }
-
-    public class State_WaitForStart {}
 }
